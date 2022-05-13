@@ -245,8 +245,11 @@ Use copy to do the following:
 🌟 EXAMPLE of return: ["Amedeo Modigliani", "Vasiliy Kandinskiy", "Diego Rivera"....]
 */
 
-function listOfNames(/*Your Code Here*/) {
-  /*Your Code Here*/
+function listOfNames(array) {
+  const nameArray = [...array]
+  for(let i = 0; i < nameArray.length; i++)
+  nameArray[i] = nameArray[i].name;
+  return nameArray;
 }
 
 
@@ -260,8 +263,10 @@ Use removeArtist to do the following:
 5. Return the resulting copied array
 🌟 EXAMPLE: if removeArtist is invoked with the artists array and the number 0, it will return the resulting array with Amedeo Modigliani removed from our dataset. */
 
-function removeArtist(/*Your Code Here*/) {
-  /*Your Code Here*/
+function removeArtist(array, index) {
+  const newArr = [...array];
+  newArr.splice(array[index], 1);
+  return newArr;
 }
 
 
@@ -281,8 +286,15 @@ Use addArtist to do the following:
 4. Return the array
 🌟 EXAMPLE: Invoking addArtist(artists, 'John Doe', '1988-2022', 'Full Stack Development', 'African American', 'I have a background in customer service at Big Retail Chain. I am attending BloomTech to become a Frontend Developer.') should return the artists array with the above object added to the end of the array. */
 
-function addArtist(/*Your Code Here*/) {
-  /*Your Code Here*/
+function addArtist(array, para1, para2, para3, para4, para5) {
+  array.push({
+    name: para1,
+    years: para2,
+    genre: para3,
+    nationality: para4,
+    bio: para5
+  })
+  return array;
 }
 
 
@@ -295,9 +307,16 @@ Use lotsOfArt to do the following:
 🌟 EXAMPLE: lotsOfArt(artists) will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]
 */
 
-function lotsOfArt(/*Your Code Here*/) {
-  /*Your Code Here*/
+function lotsOfArt(array) {
+  const newArr = []
+  for(let i = 0; i < array.length; i++){
+    if (array[i].paintings > 100){
+      newArr.push(array[i].name);
+    }
+  }
+  return newArr;
 }
+console.log(lotsOfArt(artists));
 
 
 
